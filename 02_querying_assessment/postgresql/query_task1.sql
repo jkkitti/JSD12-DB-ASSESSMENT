@@ -15,6 +15,24 @@
 -- interpreted the task, what data you need, which table(s) are
 -- involved, and what SQL concepts you plan to use.
 -- Write in English or Thai. Do not skip this step.
---
+
+-- ---------------------------------------------------------------------
 -- Your thinking:
---
+-- ---------------------------------------------------------------------
+/* คุณเข้าใจโจทย์นี้ว่าอย่างไร
+ให้แสดงเมนูทั้งหมดที่อยู่ในหมวด 'Side' (ของทานเล่น)
+พร้อมกับ ชื่อเมนู (name) และ ราคา (price)
+
+ต้องใช้ข้อมูลอะไรบ้าง, ใช้ table ไหน
+-- ชื่อเมนู (name) และ ราคา (price)
+-- โดยใช้ข้อมูลจากตาราง MenuItems เท่านั้น เพราะในตารางนี้มี name, price, category
+
+ใช้แนวคิด SQL อะไร 
+ใช้ SELECT เพื่อเลือก column ที่ต้องการ (name, price)
+ใช้ FROM เพื่อระบุ table (MenuItems)
+ใช้ WHERE เพื่อกรองเฉพาะ category = 'Side'
+*/
+
+SELECT name, price
+FROM MenuItems
+WHERE category = 'Side';

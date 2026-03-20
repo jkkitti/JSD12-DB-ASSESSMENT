@@ -19,3 +19,37 @@
 //
 // Your thinking:
 //
+
+/*
+สำหรับโจทย์นี้ ผมเข้าใจว่าผู้จัดการต้องการตรวจสอบผลงานของพนักงานชื่อ Jane Doe
+โดยต้องการดูเฉพาะข้อมูลของออเดอร์ที่พนักงานคนนี้เป็นผู้ดูแล
+
+ข้อมูลที่ต้องการมีเพียง:
+วันที่สั่งซื้อ (order_date)
+มูลค่ารวมของออเดอร์ (total_price)
+
+ดังนั้น:
+ข้อมูลจะอยู่ใน collection orders
+ต้องกรองข้อมูลเฉพาะออเดอร์ที่เป็นของ "Jane Doe"
+ใช้เงื่อนไขในการค้นหา (filter) เช่น staff_name: "Jane Doe"
+และเลือกเฉพาะ field ที่ต้องการด้วย projection
+
+แนวคิด:
+ใช้ .find() เพื่อค้นหาข้อมูล
+ใช้เงื่อนไข filter เพื่อเลือกเฉพาะ Jane Doe
+ใช้ projection เพื่อแสดงเฉพาะ order_date และ total_price
+*/
+
+use("chrome-burger-db");
+
+db.orders.find(
+  {
+    "staff.first_name": "Jane",
+    "staff.last_name": "Doe",
+  },
+  {
+    _id: 0,
+    order_date: 1,
+    total_price: 1,
+  },
+);

@@ -18,3 +18,27 @@
 //
 // Your thinking:
 //
+
+/*
+สำหรับโจทย์นี้ ผมเข้าใจว่าเจ้าของร้านต้องการเลือกเมนูที่มีราคาถูกเพื่อทำโปรโมชัน “Budget Meal Deal”
+โดยเงื่อนไขคือ เมนูต้องมีราคาต่ำกว่า 10 ดอลลาร์
+ดังนั้น:
+ข้อมูลที่ต้องใช้คือ ชื่อเมนู และราคา
+ข้อมูลอยู่ใน collection ชื่อ menu_items
+field ที่เกี่ยวข้องคือ price
+
+แนวทางการแก้:
+query ข้อมูลจาก collection menu_items
+โดยกรองเฉพาะ document ที่มี price น้อยกว่า 10.00
+ใช้ operator ของ MongoDB คือ $lt (less than)
+
+หมายเหตุ:price ใน dataset เป็น Decimal128 
+ดังนั้นต้องเขียนเป็น Decimal128("10.00")
+ในการเปรียบเทียบให้ถูก type
+*/
+
+use("chrome-burger-db");
+
+db.menu_items.find({
+  price: { $lt: Decimal128("10.00") },
+});

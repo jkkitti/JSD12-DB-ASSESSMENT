@@ -18,3 +18,26 @@
 --
 -- Your thinking:
 --
+/*
+ในโจทย์นี้ ผมเข้าใจว่า:
+ผู้จัดการต้องการ รายชื่อพนักงานที่เป็น Cook (พ่อครัว/แม่ครัว)
+โดยต้องการแค่:
+first_name (ชื่อจริง)
+last_name (นามสกุล)
+
+ข้อมูลที่ต้องใช้:
+ใช้ข้อมูลจาก 1 ตาราง 
+Staff 
+first_name ชื่อ
+last_name นามสกุล
+role ตำแหน่งงาน
+
+Logic ที่ใช้:
+ใช้ SELECT เพื่อเลือก column ที่ต้องการ (first_name, last_name)
+ใช้ FROM เพื่อระบุ table (Staff)
+ใช้ WHERE เพื่อกรองเฉพาะพนักงานที่มี role = 'Cook'
+*/
+
+SELECT first_name, last_name
+FROM Staff
+WHERE role = 'Cook';

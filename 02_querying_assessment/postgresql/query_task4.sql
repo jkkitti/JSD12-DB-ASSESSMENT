@@ -18,3 +18,29 @@
 --
 -- Your thinking:
 --
+
+/* 
+ในโจทย์นี้ ผมเข้าใจว่า:
+ผู้จัดการต้องการรู้ว่า มีวัตถุดิบอะไรบ้างที่มาจากซัพพลายเออร์ชื่อ 'Freshest Farm Produce'
+เพื่อประเมินว่าถ้าซัพพลายเออร์นี้ส่งของช้า จะกระทบกับเมนูอะไรบ้าง
+
+ข้อมูลที่ต้องใช้:
+ใช้ 2 ตาราง
+Suppliers
+supplier_id ใช้เชื่อมกับ Ingredients
+name ใช้ filter ว่าเป็น 'Freshest Farm Produce'
+
+Ingredients
+name ชื่อวัตถุดิบที่ต้องการแสดง
+supplier_id ใช้เชื่อมกับ Suppliers
+
+Logic ที่ใช้:
+ใช้ JOIN เพื่อเชื่อม Suppliers กับ Ingredients
+ใช้ WHERE เพื่อกรองเฉพาะ supplier ที่ชื่อ 'Freshest Farm Produce'
+ใช้ SELECT เพื่อดึงเฉพาะชื่อวัตถุดิบ
+*/
+
+SELECT i.name AS ingredient_name
+FROM Ingredients i
+JOIN Suppliers s ON i.supplier_id = s.supplier_id
+WHERE s.name = 'Freshest Farm Produce';
