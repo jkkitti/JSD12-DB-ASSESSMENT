@@ -18,3 +18,28 @@
 //
 // Your thinking:
 //
+
+/*  
+Your thinking
+จากการอ่านโจทย์ ข้อนี้ต้องการหาวัตถุดิบที่มีสต็อกเหลืออยู่เยอะ
+เพื่อช่วยให้ผู้จัดการสามารถ “ลดความสำคัญ” ในการสั่งของรอบถัดไปได้
+
+โดยเงื่อนไขสำคัญคือ
+ต้องเลือกข้อมูลจาก collection ชื่อ ingredients
+สนใจ field stock_level
+เลือกเฉพาะรายการที่มีค่า มากกว่าหรือเท่ากับ 100
+
+ข้อมูลที่ต้องการ
+ข้อมูลวัตถุดิบทั้งหมดที่เข้าเงื่อนไข (อาจรวม name, stock_level, unit)
+
+แนวคิดที่ใช้
+ใช้ MongoDB find() เพื่อดึงข้อมูล
+ใช้ operator $gte (greater than or equal) เพื่อกรองค่า stock_level >= 100
+*/
+
+use("chrome-burger-db");
+
+db.getCollection("ingredients").find(
+  { stock_level: { $gte: Decimal128("100.00") } },
+  { name: 1, stock_level: 1, unit: 1 },
+);
